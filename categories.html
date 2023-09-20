@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Selection</title>
+    <script>
+        function toggleOtherTextbox() {
+            const categoryDropdown = document.getElementById("category");
+            const otherTextbox = document.getElementById("otherText");
+
+            if (categoryDropdown.value === "Other") {
+                otherTextbox.style.display = "block";
+                otherTextbox.required = true;
+            } else {
+                otherTextbox.style.display = "none";
+                otherTextbox.required = false;
+                otherTextbox.value = ""; // Clear the text if it was previously filled
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Select a Category</h1>
+    <form>
+        <label for="category">Choose a category:</label>
+        <select id="category" name="category" onchange="toggleOtherTextbox()">
+            <option value="Milk">Masala Dosa</option>
+            <option value="Butter">Ghee Roast</option>
+            <option value="Jam">Tea</option>
+            <option value="Bread">Coffee</option>
+            <option value="Cheese">Uthappam</option>
+            <option value="Other">Other...</option>
+        </select>
+
+        <div id="otherTextDiv">
+            <label for="otherText">Specify Other:</label>
+            <input type="text" id="otherText" name="otherText" style="display: none;">
+        </div>
+        
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
